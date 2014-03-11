@@ -10,7 +10,6 @@ var moment = require('moment');
 var settings = config.readConfig('./config.yml');
 var loginurl = 'http://3t.no/scripts/brpHandlerV2.groovy';
 var bookingurl = 'http://3t.no/scripts/brpHandlerV2.groovy';
-var cookie;
 
 var login = function(settings, callback) {
   r({
@@ -80,9 +79,11 @@ var init = function(settings) {
   if (!settings || !settings.username) {
     console.error('Problems reading config. Exiting.'.red);
     console.error(util.format('Please copy %s to %s and edit the settings for you.', 'default.config.yml'.yellow, 'config.yml'.yellow));
+    return false;
   }
   else {
     start(settings);
+    return true;
   }
 };
 init(settings);
