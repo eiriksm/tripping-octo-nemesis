@@ -1,6 +1,6 @@
 tripping-octo-nemesis
 =====================
-
+[![Build Status](https://secure.travis-ci.org/eiriksm/tripping-octo-nemesis.png)](http://travis-ci.org/eiriksm/tripping-octo-nemesis)
 I love choosing repo names from suggestions
 
 Module to book stuff from 3t. Note that this does not use any "official" API, so
