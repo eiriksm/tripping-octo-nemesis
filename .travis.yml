@@ -4,5 +4,4 @@ node_js:
   - "0.10"
 
 script:
-  - ./node_modules/mocha/bin/mocha 
-  - ./node_modules/jshint/bin/jshint index.js
+  - make test

@@ -16,12 +16,18 @@ index.js`
 - npm
 
 ## Settings
-You should look up what business unit you want to book.
+You should look up what business unit you want to book. Other settings should
+be self-explanatory
 
 ## Run weekly with cron.
 - Edit your crontab (for example with `crontab -e`)
 - Add the following line (used for booking on fridays):
 ```01 08 * * 5 node /path/to/script/index.js > /dev/null```
+
+## Contribute
+Contributions are welcome, although I would be pleasantly surprised :)
+
+Remember to run all tests with `make test`
 
 ## Licence
 WTFPL
