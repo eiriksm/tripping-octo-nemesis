@@ -1,0 +1,8 @@
+default:
+  username: ""
+  password: ""
+  businessUnit: 1
+  dayOfWeek: 1
+  times:
+    - '19:30'
+    - '20:00'
