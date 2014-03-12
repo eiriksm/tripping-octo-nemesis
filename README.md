@@ -1,5 +1,6 @@
 tripping-octo-nemesis
 =====================
+[![Dependency Status](https://david-dm.org/eiriksm/tripping-octo-nemesis.png)](https://david-dm.org/eiriksm/tripping-octo-nemesis)
 [![Build Status](https://secure.travis-ci.org/eiriksm/tripping-octo-nemesis.png)](http://travis-ci.org/eiriksm/tripping-octo-nemesis)
 [![Code Climate](https://codeclimate.com/github/eiriksm/tripping-octo-nemesis.png)](https://codeclimate.com/github/eiriksm/tripping-octo-nemesis)
 
@@ -23,7 +24,7 @@ be self-explanatory (Just remember that sunday = day 0 and saturday = day 6).
 
 At the time of writing, these are the businessUnit codes:
 - 3t Rosten: __1__
-- 3t Leanger: __2__
+- 3t Leangen: __2__
 - 3t Steinkjer: __5__
 - 3t Sluppen: __6__
 
