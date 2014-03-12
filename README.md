@@ -17,7 +17,13 @@ index.js`
 
 ## Settings
 You should look up what business unit you want to book. Other settings should
-be self-explanatory
+be self-explanatory (Just remember that sunday = day 0 and saturday = day 6).
+
+At the time of writing, these are the businessUnit codes:
+- 3t Rosten: __1__
+- 3t Leanger: __2__
+- 3t Steinkjer: __5__
+- 3t Sluppen: __6__
 
 ## Run weekly with cron.
 - Edit your crontab (for example with `crontab -e`)
@@ -30,4 +36,4 @@ Contributions are welcome, although I would be pleasantly surprised :)
 Remember to run all tests with `make test`
 
 ## Licence
-WTFPL
+[WTFPL](http://en.wikipedia.org/wiki/WTFPL)
