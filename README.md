@@ -31,7 +31,7 @@ At the time of writing, these are the businessUnit codes:
 ## Run weekly with cron.
 - Edit your crontab (for example with `crontab -e`)
 - Add the following line (used for booking on fridays):
-```01 08 * * 5 node /path/to/script/index.js > /dev/null```
+```01 08 * * 5 cd /path/to/script && node index.js > /dev/null```
 
 ## Contribute
 Contributions are welcome, although I would be pleasantly surprised :)

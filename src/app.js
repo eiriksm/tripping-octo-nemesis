@@ -70,6 +70,17 @@ var start = function(settings, callback) {
   ], function(err, results) {
     if (err || results[0].error || results[1].error) {
       console.error('Trouble booking stuff.'.red);
+      var msg = [];
+      if (err) {
+        msg.push(err);
+      }
+      if (results[0] && results[0].error) {
+        msg.push(results[0].error);
+      }
+      if (results[1] && results[1].error) {
+        msg.push(results[1].error);
+      }
+      console.error('Error message given: \n'.red, msg);
     }
     if (callback) {
       callback(err, results);
