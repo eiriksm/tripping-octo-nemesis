@@ -4,6 +4,13 @@ oct.override({
   bookingurl: 'http://localhost:9876'
 });
 
+// Override log mechanism for prettier test output.
+oct.app.log = {
+  log: function() {},
+  error: function(){}
+};
+oct.app.l = oct.app.log;
+
 var should = require('should');
 
 describe('Config', function() {

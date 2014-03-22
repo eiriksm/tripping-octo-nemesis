@@ -5,6 +5,14 @@ var r = request.defaults({jar: true});
 var async = require('async');
 var moment = require('moment');
 
+var app = {
+  log: {
+    log: console.log,
+    error: console.error
+  }
+};
+app.l = app.log;
+
 var config = {
   loginurl: 'http://3t.no/scripts/brpHandlerV2.groovy',
   bookingurl: 'http://3t.no/scripts/brpHandlerV2.groovy'
@@ -69,7 +77,7 @@ var start = function(settings, callback) {
     }
   ], function(err, results) {
     if (err || results[0].error || results[1].error) {
-      console.error('Trouble booking stuff.'.red);
+      app.l.error('Trouble booking stuff.'.red);
       var msg = [];
       if (err) {
         msg.push(err);
@@ -80,7 +88,7 @@ var start = function(settings, callback) {
       if (results[1] && results[1].error) {
         msg.push(results[1].error);
       }
-      console.error('Error message given: \n'.red, msg);
+      app.l.error('Error message given: \n'.red, msg);
     }
     if (callback) {
       callback(err, results);
@@ -90,8 +98,8 @@ var start = function(settings, callback) {
 
 var init = function(settings) {
   if (!settings || !settings.username) {
-    console.error('Problems reading config. Exiting.'.red);
-    console.error(util.format('Please copy %s to %s and edit the settings for you.', 'default.config.yml'.yellow, 'config.yml'.yellow));
+    app.l.error('Problems reading config. Exiting.'.red);
+    app.l.error(util.format('Please copy %s to %s and edit the settings for you.', 'default.config.yml'.yellow, 'config.yml'.yellow));
     return false;
   }
   else {
@@ -104,3 +112,4 @@ exports.start = start;
 exports.override = function(urlsettings) {
   config = urlsettings;
 };
+exports.app = app;
