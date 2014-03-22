@@ -13,7 +13,7 @@ you should use at your own risk.
 ## Setup
 - Install the required modules (`npm install`)
 - Copy the file `default.config.yml` to `config.yml` and run with `node
-index.js`
+starter.js`
 
 ## Requirements
 - Node.js
@@ -32,7 +32,7 @@ At the time of writing, these are the businessUnit codes:
 ## Run weekly with cron.
 - Edit your crontab (for example with `crontab -e`)
 - Add the following line (used for booking on fridays):
-```01 08 * * 5 cd /path/to/script && node index.js > /dev/null```
+```01 08 * * 5 cd /path/to/script && node starter.js > /dev/null```
 
 ## Contribute
 Contributions are welcome, although I would be pleasantly surprised :)
