@@ -4,6 +4,7 @@ var request = require('request');
 var r = request.defaults({jar: true});
 var async = require('async');
 var moment = require('moment');
+var bookstatus = require('./status');
 
 var app = {
   log: {
@@ -32,7 +33,7 @@ var login = function(settings, callback) {
       password: settings.password
     }
   }, function(err, res, body) {
-    callback(err, 'cool');
+    callback(err, res);
   });
 };
 
@@ -63,20 +64,26 @@ var book = function(delta, settings, callback) {
   });
 };
 
-var start = function(settings, callback) {
-  // First log in.
-  async.series([
+var start = function(settings, shouldBook, callback) {
+  var serie = [
     function(callback) {
       login(settings, callback);
-    },
-    function(callback) {
-      book(0, settings, callback);
-    },
-    function(callback) {
-      book(1, settings, callback);
     }
-  ], function(err, results) {
-    if (err || results[0].error || results[1].error) {
+  ];
+  if (shouldBook) {
+    serie.push(function(callback) {
+      book(0, settings, callback);
+    });
+    serie.push(function(callback) {
+      book(1, settings, callback);
+    });
+  }
+
+  // First log in.
+
+
+  async.series(serie, function(err, results) {
+    if (err || (results[0] && results[0].error) || (results[1] && results[1].error)) {
       app.l.error('Trouble booking stuff.'.red);
       var msg = [];
       if (err) {
@@ -96,14 +103,14 @@ var start = function(settings, callback) {
   });
 };
 
-var init = function(settings) {
+var init = function(settings, shouldBook, callback) {
   if (!settings || !settings.username) {
     app.l.error('Problems reading config. Exiting.'.red);
     app.l.error(util.format('Please copy %s to %s and edit the settings for you.', 'default.config.yml'.yellow, 'config.yml'.yellow));
     return false;
   }
   else {
-    start(settings);
+    start(settings, shouldBook, callback);
     return true;
   }
 };
@@ -111,5 +118,10 @@ exports.init = init;
 exports.start = start;
 exports.override = function(urlsettings) {
   config = urlsettings;
+};
+exports.status = function(callback) {
+  bookstatus.getStatus(r, function(err, res) {
+    callback(err, res);
+  });
 };
 exports.app = app;

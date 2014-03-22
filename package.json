@@ -1,6 +1,6 @@
 {
   "name": "tripping-octo-nemesis",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "A 3t squash booker.",
   "main": "index.js",
   "scripts": {
@@ -22,7 +22,8 @@
     "colors": "^0.6.2",
     "async": "^0.2.10",
     "moment": "^2.5.1",
-    "coveralls": "^2.8.0"
+    "coveralls": "^2.8.0",
+    "cheerio": "^0.13.1"
   },
   "devDependencies": {
     "should": "^3.1.3",
