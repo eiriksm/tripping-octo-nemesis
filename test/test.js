@@ -52,7 +52,7 @@ describe('Requests', function() {
         '20:00'
       ]
     }, true, function(err, res) {
-      should(err).equal(null);
+      should(err).equal(undefined);
       done();
     });
   });
