@@ -1,23 +1,28 @@
 tripping-octo-nemesis
 =====================
-[![Dependency Status](https://david-dm.org/eiriksm/tripping-octo-nemesis.png)](https://david-dm.org/eiriksm/tripping-octo-nemesis)
-[![Build Status](https://secure.travis-ci.org/eiriksm/tripping-octo-nemesis.png)](http://travis-ci.org/eiriksm/tripping-octo-nemesis)
-[![Code Climate](https://codeclimate.com/github/eiriksm/tripping-octo-nemesis.png)](https://codeclimate.com/github/eiriksm/tripping-octo-nemesis)
-[![Coverage Status](https://coveralls.io/repos/eiriksm/tripping-octo-nemesis/badge.png)](https://coveralls.io/r/eiriksm/tripping-octo-nemesis)
+[![Code Climate](http://img.shields.io/codeclimate/github/eiriksm/tripping-octo-nemesis.svg)](https://codeclimate.com/github/eiriksm/tripping-octo-nemesis)
+[![Build Status](https://travis-ci.org/eiriksm/tripping-octo-nemesis.svg)](https://travis-ci.org/eiriksm/tripping-octo-nemesis)
+[![Dependency Status](https://david-dm.org/eiriksm/tripping-octo-nemesis.svg?theme=shields.io)](https://david-dm.org/eiriksm/tripping-octo-nemesis)
+[![Coverage Status](http://img.shields.io/codeclimate/coverage/github/eiriksm/tripping-octo-nemesis.svg)](https://coveralls.io/r/eiriksm/tripping-octo-nemesis)
 
 I love choosing repo names from suggestions
 
 Module to book stuff from 3t. Note that this does not use any "official" API, so
 you should use at your own risk.
 
+## Requirements
+- Node.js
+- npm
+
 ## Setup
 - Install the required modules (`npm install`)
 - Copy the file `default.config.yml` to `config.yml` and run with `node
 starter.js`
 
-## Requirements
-- Node.js
-- npm
+If you want to use it as a module, you then
+```
+var octo = require('tripping-octo-nemesis');
+```
 
 ## Settings
 You should look up what business unit you want to book. Other settings should
