@@ -3,7 +3,7 @@ tripping-octo-nemesis
 [![Code Climate](http://img.shields.io/codeclimate/github/eiriksm/tripping-octo-nemesis.svg)](https://codeclimate.com/github/eiriksm/tripping-octo-nemesis)
 [![Build Status](https://travis-ci.org/eiriksm/tripping-octo-nemesis.svg)](https://travis-ci.org/eiriksm/tripping-octo-nemesis)
 [![Dependency Status](https://david-dm.org/eiriksm/tripping-octo-nemesis.svg?theme=shields.io)](https://david-dm.org/eiriksm/tripping-octo-nemesis)
-[![Coverage Status](http://img.shields.io/codeclimate/coverage/github/eiriksm/tripping-octo-nemesis.svg)](https://coveralls.io/r/eiriksm/tripping-octo-nemesis)
+[![Coverage Status](http://img.shields.io/coveralls/eiriksm/tripping-octo-nemesis.svg)](https://coveralls.io/r/eiriksm/tripping-octo-nemesis)
 
 I love choosing repo names from suggestions
 
