@@ -1,8 +1,15 @@
 language: node_js
 node_js:
-  - "0.11"
-  - "0.10"
-
+- '0.11'
+- '0.10'
 script:
-  - make test
-  - make test-cov
+- make test
+- make test-cov
+deploy:
+  provider: npm
+  email: eirik@morland.no
+  api_key:
+    secure: gDLF0i9owAuAL650pC5KY6krsFomLBhx4Bxo1c+8gI6mLdoBp8LXx1JwFoCjYMg640iemwdq6eh1CYsSIkORjFpXPE7dvyJYmIE3vPHfpyBrjO1xbQwG5+u5mEA+d2/kP7fXlc3rU+UVJ5Ojek8LtbdM327h7s2RChaOdXW6mTw=
+  on:
+    tags: true
+    repo: eiriksm/tripping-octo-nemesis
