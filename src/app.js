@@ -4,7 +4,9 @@ var request = require('request');
 var r = request.defaults({jar: true});
 var async = require('async');
 var moment = require('moment');
-var bookstatus = require('./status');
+
+var bookstatus = require('./modules/status');
+var unbook = require('./modules/unbook');
 
 var app = {
   log: {
@@ -79,9 +81,6 @@ var start = function(settings, shouldBook, callback) {
     });
   }
 
-  // First log in.
-
-
   async.series(serie, function(err, results) {
     if (err || (results[0] && results[0].error) || (results[1] && results[1].error)) {
       app.l.error('Trouble booking stuff.'.red);
@@ -123,5 +122,8 @@ exports.status = function(callback) {
   bookstatus.getStatus(r, function(err, res) {
     callback(err, res);
   });
+};
+exports.unbook = function(id, callback) {
+  unbook({id: id, request: r}, callback);
 };
 exports.app = app;

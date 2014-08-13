@@ -35,6 +35,12 @@ module.exports = {
             if (j < 3) {
               row.push($(this).text());
             }
+            if (j === 3) {
+              // Try to find cancel booking id.
+              var b = $(this).find('button');
+              var id = b.attr('data-cancelid');
+              row.push(id);
+            }
           });
           if (row.length) {
             result.push(row);
@@ -45,7 +51,6 @@ module.exports = {
       else {
         callback(err, []);
       }
-
     });
   }
 };
