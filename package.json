@@ -1,6 +1,6 @@
 {
   "name": "tripping-octo-nemesis",
-  "version": "0.0.5",
+  "version": "0.1.0",
   "description": "A 3t squash booker.",
   "main": "index.js",
   "scripts": {
