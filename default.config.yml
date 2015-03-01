@@ -3,6 +3,7 @@ default:
   password: ""
   businessUnit: 1
   dayOfWeek: 1
+  preferredCourt: 6
   times:
     - '19:30'
     - '20:00'

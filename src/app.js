@@ -225,6 +225,10 @@ exports.status = function(callback) {
   });
 };
 exports.unbook = function(id, callback) {
-  unbook({id: id, request: r}, callback);
+  unbook({
+    security: sec.security,
+    id: id,
+    request: r
+  }, callback);
 };
 exports.app = app;
