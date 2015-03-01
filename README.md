@@ -20,7 +20,7 @@ you should use at your own risk.
 starter.js`
 
 If you want to use it as a module, you then
-```
+```js
 var octo = require('tripping-octo-nemesis');
 ```
 
