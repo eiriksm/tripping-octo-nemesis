@@ -5,21 +5,27 @@ function unbook(opts, callback) {
     callback(new Error('No id to unbook'));
     return;
   }
+  if (!opts.security) {
+    callback(new Error('Need security token'));
+    return;
+  }
   var request = opts.request;
   if (!request) {
     request = require('request');
   }
   var url = opts.url;
   if (!opts.url) {
-    url = 'http://3t.no/scripts/brpHandlerV2.groovy?action=delete_squash_or_cageball_booking&json=true&order_id=';
+    url = 'http://3t.no/wp-admin/admin-ajax.php';
   }
-  // Append order id.
-  url = url + opts.id;
   request({
     uri: url,
-    followAllRedirects: true,
-    method: 'GET',
-    jar: true
+    method: 'POST',
+    jar: true,
+    form: {
+      action: 'cancel_service',
+      security: opts.security,
+      order_id: opts.id
+    }
   }, callback);
 
 }

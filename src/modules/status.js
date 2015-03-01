@@ -1,8 +1,6 @@
-// Module imports.
-var cheerio = require('cheerio');
-
+'use strict';
 // Private property.
-var statusurl = 'http://3t.no/www/Min_Side/Bookinger/';
+var statusurl = 'http://3t.no/wp-admin/admin-ajax.php';
 
 module.exports = {
   // For tests.
@@ -10,47 +8,33 @@ module.exports = {
     statusurl = url;
   },
   // The work horse.
-  getStatus: function(request, callback) {
+  getStatus: function(opts, callback) {
+    var request = opts.request;
     // Send request using a injected request, as this will contain the
     // auth cookie.
     request({
       url: statusurl,
       followAllRedirects: true,
-      method: 'GET',
-      jar: true
+      method: 'POST',
+      jar: true,
+      form: {
+        action: 'load_service_bookings',
+        security: opts.security
+      }
     }, function(err, res, body) {
       if (err) {
         callback(err);
         return;
       }
-      // Do some parsing.
-      var $ = cheerio.load(body);
-      if ($('.my_booked_activitites table tr').length > 0) {
-        // Oh yeah, we got it.
-        var result = [];
-        $('.my_booked_activitites table tr').each(function(i, n) {
-          // Find date and booking type.
-          var row = [];
-          $(this).find('td').each(function(j, m) {
-            if (j < 3) {
-              row.push($(this).text());
-            }
-            if (j === 3) {
-              // Try to find cancel booking id.
-              var b = $(this).find('button');
-              var id = b.attr('data-cancelid');
-              row.push(id);
-            }
-          });
-          if (row.length) {
-            result.push(row);
-          }
-        });
-        callback(null, result);
+      var jsonData;
+      try {
+        jsonData = JSON.parse(body);
       }
-      else {
-        callback(err, []);
+      catch (jsonErr) {
+        callback(jsonErr);
+        return;
       }
+      callback(null, jsonData.data);
     });
   }
 };
